@@ -3,7 +3,7 @@ import random
 import time 
 
 
-def load_html(url):
+def extract_html(url):
     with sync_playwright() as p:
         browser = p.chromium.launch_persistent_context(
             user_data_dir=r"C:\Users\A C E R\OneDrive\Desktop\LLM powered AI Scraper\user_data",
