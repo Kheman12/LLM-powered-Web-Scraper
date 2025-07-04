@@ -2,3 +2,7 @@ playwright
 beautifulsoup4
 patchright
 streamlit
+langchain
+langchain-community
+langchain-text-splitters
+python-dotenv
