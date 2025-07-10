@@ -1,12 +1,10 @@
 playwright
 beautifulsoup4
-patchright
 streamlit
 langchain
 langchain-community
 langchain-text-splitters
-python-dotenv
 html2text
 streamlit-tags
-langchain-groq
 pandas
+langchain-ollama
