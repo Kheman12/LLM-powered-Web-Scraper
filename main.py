@@ -15,11 +15,19 @@ parser = LLMParser()
 
 # Function when the Scrape Button is clicked:
 async def scrape_action(url, fields):
+    status_placeholder.info("Extracting the HTML......")
     raw_html = await extract_html(url)
+    status_placeholder.success("HTML extracted Sucessfully.")
+    status_placeholder.info("Cleaning the raw HTML......")
     body_content = extract_body_content(raw_html)
     clean_html = clean_body_content(body_content)
+    status_placeholder.success("HTML has been cleaned.")
+    status_placeholder.info("Converting HTML to Markdown......")
     markdown = convert_to_markdown(clean_html)
+    status_placeholder.success("HTML converted to Markdown")
+    status_placeholder.info("Parsing the content with LLM......")
     output = parser.parse(markdown, fields)
+    status_placeholder.success("The content has been sucessfully parsed !")
     return output
 
 def json_to_df(json_data: dict) -> pd.DataFrame:
@@ -60,6 +68,7 @@ with st.sidebar:
         elif not url:
             st.error("Please enter the URL")
         else:
+            status_placeholder = st.empty()
             with st.spinner("Scraping data......"):
                 try:
                     # Create a new event loop for Windows
